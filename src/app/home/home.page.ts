@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { FilmesService } from '../serveces/filmes.service';
+
 
 @Component({
   selector: 'app-home',
@@ -10,8 +12,16 @@ import { AlertController } from '@ionic/angular';
 export class HomePage {
 
   constructor(private alertController: AlertController,
-    private rota: Router) {}
+    private rota: Router,
+    private filmeservece: FilmesService) {}
   
+    async ngOInit()
+    {
+      console.log('passo no home');
+     // this.carregarFilme();
+      this.filmeservece.getProduction();
+    }
+
 
   detalhesfilme(paramID)
   {
