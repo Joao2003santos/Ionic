@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { FilmesService } from '../services/filmes.service';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +9,14 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-  constructor(private router: Router){
+  constructor(private router: Router,
+    private filmesService: FilmesService){
 
+  }
+
+  ngOnInit(){
+    console.log('passou no home');
+    this.filmesService.getProductions();
   }
 
   pageDetails() {
@@ -19,4 +26,6 @@ export class HomePage {
   pageHome() {
     this.router.navigate(['/home'])
   }
+
+
 }
