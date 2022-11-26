@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path: 'detalhesfilme',
     loadChildren: () => import('./detalhesfilme/detalhesfilme.module').then( m => m.DetalhesfilmePageModule)
+  },  {
+    path: 'cep',
+    loadChildren: () => import('./cep/cep.module').then( m => m.CepPageModule)
   },
+
 ];
 
 @NgModule({
